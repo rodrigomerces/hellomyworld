@@ -181,7 +181,10 @@ do
     do
       if [ ! -f /mnt/stateful_partition/ubuntu/$FILENAME.sha1 ]
       then
-        wget http://cr-48-ubuntu.googlecode.com/files/$FILENAME.sha1
+        wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cr-48-ubuntu/$FILENAME.sha1
+#        wget http://cr-48-ubuntu.googlecode.com/files/$FILENAME.sha1
+#https://code.google.com/archive/p/cr-48-ubuntu/downloads
+#https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cr-48-ubuntu/ubuntu-1204-arm.binbz.bz2.sha1
       fi
       correct_sha1=`cat $FILENAME.sha1 | awk '{print $1}'`
       correct_sha1_length="${#correct_sha1}"
@@ -207,7 +210,8 @@ do
         get_cmd="cat /tmp/usb_files/$FILENAME"
       else
         echo -e "\n\nDownloading $FILENAME\n\n"
-        get_cmd="wget -O - http://cr-48-ubuntu.googlecode.com/files/$FILENAME"
+        get_cmd="wget -O - https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/cr-48-ubuntu/$FILENAME"
+#        get_cmd="wget -O - http://cr-48-ubuntu.googlecode.com/files/$FILENAME"
       fi
     write_is_valid=0
     while [ $write_is_valid -ne 1 ]
